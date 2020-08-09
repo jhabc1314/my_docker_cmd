@@ -1,0 +1,20 @@
+# kong 网关 使用 cassandra 分布式数据库
+version: '3'
+
+services: 
+    cassandra:
+        image: cassandra:3.11.7
+        expose: 9042
+        networks: 
+            - kong-net
+        container_name: cassandra
+    kong:
+        image: kong::2.1.1
+
+        networks: 
+            - kong-net
+        depends_on: cassandra
+
+network_mode: bridge
+        
+        

@@ -1,0 +1,8 @@
+# 数据卷命令
+usage: docker volume COMMAND
+commands: 
+    create: 创建一个数据卷
+    inspect: 检查一个数据卷内容
+    ls: 列出数据卷
+    prune: 修剪清除无效的数据卷
+    rm: 移除一个或多个数据卷
