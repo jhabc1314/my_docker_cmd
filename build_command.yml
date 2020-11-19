@@ -1,3 +1,47 @@
 #build 命令
-usage: "docker build [OPTIONS] PATH | URL | -"
-options: 
+usage: "docker build [OPTIONS] PATH | URL | - PATH 为打包项目上下文路径,不是Dockerfile路径"
+
+desc: 根据 Dockerfile 构建一个镜像
+
+options:
+  --add-host list:
+    Add a custom host-to-IP mapping (host:ip) 按host:ip规则添加自定义的映射关系
+    - --add-host=test.docker.com:192.168.1.9 --add-host=test2.docker.com:192.168.1.10 多个写多次
+
+  --build-arg <参数名>=<值>:
+    Set build-time variables 设置构建时环境变量,覆盖 Dockerfile 中 ARG 命令指定的参数值
+    - --build-arg HTTP_PROXY=http://10.20.30.2:1234 --build-arg FTP_PROXY=http://40.50.60.5:4567
+
+  --cache-from strings: Images to consider as cache sources
+  --cgroup-parent string: Optional parent cgroup for the container
+  --compress: Compress the build context using gzip
+  --cpu-period int: Limit the CPU CFS (Completely Fair Scheduler) period
+  --cpu-quota int: Limit the CPU CFS (Completely Fair Scheduler) quota
+  -c, --cpu-shares int: CPU shares (relative weight)
+  --cpuset-cpus string: CPUs in which to allow execution (0-3, 0,1)
+  --cpuset-mems string: MEMs in which to allow execution (0-3, 0,1)
+  --disable-content-trust: Skip image verification (default true)
+  -f, --file string: Name of the Dockerfile (Default is 'PATH/Dockerfile')
+  --force-rm: Always remove intermediate containers
+  --iidfile string: Write the image ID to the file
+  --isolation string: Container isolation technology
+  --label list: Set metadata for an image
+  -m, --memory bytes: Memory limit
+  --memory-swap bytes: Swap limit equal to memory plus swap:'-1' to enable unlimited swap
+  --network string: Set the networking mode for the RUN instructions during build (default "default")
+  --no-cache: Do not use cache when building the image
+  -o, --output stringArray: Output destination (format:type=local,dest=path)
+  --platform string: Set platform if server is multi-platform capable
+  --progress string: Set type of progress output (auto, plain, tty). Use plain to show container output (default "auto")
+  --pull: Always attempt to pull a newer version of the image
+  -q, --quiet: Suppress the build output and print image ID on success
+  --rm: Remove intermediate containers after a successful build (default true)
+  --secret stringArray: Secret file to expose to the build (only if BuildKit enabled):id=mysecret,src=/local/secret
+  --security-opt strings: Security options
+  --shm-size bytes: Size of /dev/shm
+  --squash: Squash newly built layers into a single new layer
+  --ssh stringArray: SSH agent socket or keys to expose to the build (only if BuildKit enabled) (format:default|<id>[=<socket>|<key>[,<key>]])
+  --stream: Stream attaches to server to negotiate build context
+  -t, --tag list: Name and optionally a tag in the 'name:tag' format
+  --target string: Set the target build stage to build.
+  --ulimit ulimit: Ulimit options (default [])
