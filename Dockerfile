@@ -60,7 +60,7 @@ ARG sex=1
 # VOLUME ["<路径1>", "<路径2>"...]
 # VOLUME <路径>
 VOLUME my_volume /foo
-# docker run -v my_volume1:/foo 可以在启动时指定挂载卷 会替换dockerfile中指定的匿名卷
+# docker run -v my_volume1:/foo:ro 可以在启动时指定挂载卷 会替换dockerfile中指定的匿名卷 第三个参数指定权限，默认rw可读写，ro为只读
 
 # EXPOSE 暴露端口
 # EXPOSE <端口1> [<端口2>...]
