@@ -4,4 +4,5 @@ WORKDIR /app
 
 RUN npm config set registry https://registry.npmmirror.com \
     && npm i -g typescript \
-    && npm i -g @nestjs/cli
+    && npm i -g @nestjs/cli \
+    && npm install pm2 -g
